@@ -31,7 +31,8 @@ export const useStyles = makeStyles((theme) => ({
   operationBox: {
     background: "#ecf5f7",
     height: 70,
-    width: 65,
+    minWidth: 65,
+    padding: '0 10px',
     display: "inline-block",
     fontSize: "2rem",
     lineHeight: "64px",
@@ -39,13 +40,27 @@ export const useStyles = makeStyles((theme) => ({
   },
   operation: {
     fontSize: "4rem",
+    lineHeight: 1,
     color: "#929292",
-    fontWeight: 200,
+    fontWeight: 300,
   },
   operationResult: {
     fontSize: "5rem",
+    lineHeight: 1,
     color: "#79cea1",
-    fontWeight: 200,
+    fontWeight: 300,
     fontStyle: "italic",
   },
+  resultFormControl:{
+    width: '165px',
+  },
+  selectOperator:{
+    textAlign: 'left',
+  },
+  resultWrap:{
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 'calc(100vh - 187px)',
+    justifyContent: 'space-between',
+  }
 }));

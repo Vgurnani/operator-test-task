@@ -127,7 +127,9 @@ const Screen_1 = () => {
             </Grid>
           ) : (
             <Fragment>
-              <Grid
+				<div className={classes.resultWrap}>
+					<div className={classes.resultBox}>
+					<Grid
                 container
                 spacing={3}
                 direction="row"
@@ -175,7 +177,9 @@ const Screen_1 = () => {
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid
+					</div>
+					<div className={classes.resultOperator}>
+					<Grid
                 container
                 direction="row"
                 justifyContent="center"
@@ -185,7 +189,7 @@ const Screen_1 = () => {
                 <Grid item>
                   <FormControl
                     variant="outlined"
-                    className={classes.operationFormControl}
+                    className={classes.resultFormControl}
                   >
                     <InputLabel id="demo-simple-select-outlined-label">
                       Operator
@@ -196,6 +200,7 @@ const Screen_1 = () => {
                       value={operator}
                       onChange={handleOperatorChange}
                       label="Operator"
+					  className={classes.selectOperator}
                     >
                       <MenuItem value={"+"}>+</MenuItem>
                       <MenuItem value={"-"}>-</MenuItem>
@@ -206,7 +211,7 @@ const Screen_1 = () => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    className={classes.operationFormControl}
+                    className={classes.resultFormControl}
                     name="secondNumber"
                     type="number"
                     variant="outlined"
@@ -226,6 +231,10 @@ const Screen_1 = () => {
                   </Button>
                 </Grid>
               </Grid>
+					</div>
+				</div>
+
+
             </Fragment>
           )}
         </form>
