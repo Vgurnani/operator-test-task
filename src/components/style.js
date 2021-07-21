@@ -1,8 +1,9 @@
-import { fade, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   operationFormWrap: {
     padding: "50px 0",
+    textAlign: 'center',
   },
   operationForm: {
     width: "100%",
@@ -22,7 +23,6 @@ export const useStyles = makeStyles((theme) => ({
   operationFormButton: {
     width: "100%",
     boxShadow: "none",
-    borderRadius: "0",
     padding: "14px 30px",
     textTransform: "capitalize",
     fontSize: "1rem",

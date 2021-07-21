@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider , createMuiTheme } from '@material-ui/core/styles';
 const defaultTheme = createMuiTheme({});
-const { breakpoints } = defaultTheme;
 const theme = createMuiTheme({
   palette: {
     primary: {

@@ -1,16 +1,12 @@
 import React, { Fragment, useState } from "react";
 import {
-  TextField,
-  Button,
-  Grid,
   Container,
   Typography,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from "@material-ui/core";
 import { useStyles } from "./style.js";
+import StepOne from './step_1';
+import StepTwo from './step_2';
+import { operatorResult } from "./helper.js";
 
 const Screen_1 = () => {
   const [inputValue, setInputValue] = useState({
@@ -33,8 +29,7 @@ const Screen_1 = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("Inside thisss");
-    if (inputValue) {
+    if (inputValue.firstNumber && inputValue.secondNumber) {
       setResult(
         Number(inputValue.firstNumber) + Number(inputValue.secondNumber)
       );
@@ -47,29 +42,11 @@ const Screen_1 = () => {
     const { value } = e.target;
     setOperator(value);
   };
+
   const handleOpetionResult = (e) => {
     e.preventDefault();
-    let resultValue;
-    switch (operator) {
-      case "+":
-        resultValue =
-          Number(inputValue.firstNumber) + Number(inputValue.secondNumber);
-        break;
-      case "-":
-        resultValue =
-          Number(inputValue.firstNumber) - Number(inputValue.secondNumber);
-        break;
-      case "*":
-        resultValue =
-          Number(inputValue.firstNumber) * Number(inputValue.secondNumber);
-        break;
-      case "/":
-        resultValue =
-          Number(inputValue.firstNumber) / Number(inputValue.secondNumber);
-        break;
-      default:
-    }
-    setResult(resultValue);
+   const result = operatorResult(operator,inputValue);
+    setResult(result);
   };
 
   return (
@@ -91,151 +68,12 @@ const Screen_1 = () => {
             Expression Evaluator
           </Typography>
           {!isOperation ? (
-            <Grid container spacing={3}>
-              <Grid item md={4} xs={12}>
-                <TextField
-                  className={classes.operationFormControl}
-                  name="firstNumber"
-                  type="number"
-                  variant="outlined"
-                  label="Enter First Number"
-                  onChange={(e) => onInputChange(e)}
-                  value={inputValue.firstNumber}
-                />
-              </Grid>
-              <Grid item md={4} xs={12}>
-                <TextField
-                  className={classes.operationFormControl}
-                  name="secondNumber"
-                  type="number"
-                  variant="outlined"
-                  label="Enter Second Number"
-                  onChange={(e) => onInputChange(e)}
-                  value={inputValue.secondNumber}
-                />
-              </Grid>
-              <Grid item md={4} xs={12}>
-                <Button
-                  type={"submit"}
-                  className={classes.operationFormButton}
-                  variant="contained"
-                  color="primary"
-                >
-                  Add Number
-                </Button>
-              </Grid>
-            </Grid>
-          ) : (
             <Fragment>
-				<div className={classes.resultWrap}>
-					<div className={classes.resultBox}>
-					<Grid
-                container
-                spacing={3}
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <span className={classes.operationBox}>
-                    {inputValue.firstNumber}
-                  </span>
-                </Grid>
-                <Grid item>
-                  <span className={classes.operationBox}>
-                    {inputValue.secondNumber}
-                  </span>
-                </Grid>
-                <Grid item>
-                  <span className={classes.operationBox}>{operator}</span>
-                </Grid>
-              </Grid>
-              <Grid
-                container
-                spacing={3}
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <span className={classes.operation}>=</span>
-                </Grid>
-              </Grid>
-              <Grid
-                container
-                spacing={3}
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography
-                    color="primary"
-                    className={classes.operationResult}
-                  >
-                    {result}
-                  </Typography>
-                </Grid>
-              </Grid>
-					</div>
-					<div className={classes.resultOperator}>
-					<Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={3}
-              >
-                <Grid item>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.resultFormControl}
-                  >
-                    <InputLabel id="demo-simple-select-outlined-label">
-                      Operator
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={operator}
-                      onChange={handleOperatorChange}
-                      label="Operator"
-					  className={classes.selectOperator}
-                    >
-                      <MenuItem value={"+"}>+</MenuItem>
-                      <MenuItem value={"-"}>-</MenuItem>
-                      <MenuItem value={"*"}>*</MenuItem>
-                      <MenuItem value={"/"}>/</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <TextField
-                    className={classes.resultFormControl}
-                    name="secondNumber"
-                    type="number"
-                    variant="outlined"
-                    label="Enter Second Number"
-                    onChange={(e) => onInputChange(e)}
-                    value={inputValue.secondNumber}
-                  />
-                </Grid>
-                <Grid item>
-                  <Button
-                    type={"submit"}
-                    className={classes.operationFormButton}
-                    variant="contained"
-                    color="primary"
-                  >
-                    Add Operation
-                  </Button>
-                </Grid>
-              </Grid>
-					</div>
-				</div>
-
-
+            <StepOne inputValue={inputValue} onInputChange={onInputChange}/>
             </Fragment>
+          ) : (
+           <StepTwo inputValue={inputValue} result={result} operator={operator} 
+           onInputChange={onInputChange} handleOperatorChange={handleOperatorChange}/>
           )}
         </form>
       </Container>
