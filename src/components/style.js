@@ -31,7 +31,8 @@ export const useStyles = makeStyles((theme) => ({
   operationBox: {
     background: "#ecf5f7",
     height: 70,
-    width: 65,
+    minWidth: 65,
+    padding: '0 10px',
     display: "inline-block",
     fontSize: "2rem",
     lineHeight: "64px",
