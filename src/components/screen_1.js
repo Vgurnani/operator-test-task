@@ -46,7 +46,11 @@ const Screen_1 = () => {
   const handleOpetionResult = (e) => {
     e.preventDefault();
    const result = operatorResult(operator,inputValue);
+   if(operator === "*" || operator === "/"){
+    setResult(result.toFixed(4));
+   }else{
     setResult(result);
+   }
   };
 
   return (
