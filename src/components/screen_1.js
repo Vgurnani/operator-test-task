@@ -27,11 +27,18 @@ const Screen_1 = () => {
   const [isOperation, setIsOperator] = useState(false);
 
   const [operator, setOperator] = useState("+");
+  const [result, setResult] = useState(
+    Number(inputValue.firstNumber) + Number(inputValue.secondNumber)
+  );
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("Inside thisss");
     if (inputValue) {
+      setResult(
+        Number(inputValue.firstNumber) + Number(inputValue.secondNumber)
+      );
+
       setIsOperator(true);
     }
   };
@@ -40,11 +47,38 @@ const Screen_1 = () => {
     const { value } = e.target;
     setOperator(value);
   };
+  const handleOpetionResult = (e) => {
+    e.preventDefault();
+    let resultValue;
+    switch (operator) {
+      case "+":
+        resultValue =
+          Number(inputValue.firstNumber) + Number(inputValue.secondNumber);
+        break;
+      case "-":
+        resultValue =
+          Number(inputValue.firstNumber) - Number(inputValue.secondNumber);
+        break;
+      case "*":
+        resultValue =
+          Number(inputValue.firstNumber) * Number(inputValue.secondNumber);
+        break;
+      case "/":
+        resultValue =
+          Number(inputValue.firstNumber) / Number(inputValue.secondNumber);
+        break;
+      default:
+    }
+    setResult(resultValue);
+  };
+
   return (
     <div className={classes.operationFormWrap}>
       <Container fixed>
         <form
-          onSubmit={(e) => handleFormSubmit(e)}
+          onSubmit={(e) =>
+            !isOperation ? handleFormSubmit(e) : handleOpetionResult(e)
+          }
           noValidate
           autoComplete="off"
           className={classes.operationForm}
@@ -111,7 +145,7 @@ const Screen_1 = () => {
                   </span>
                 </Grid>
                 <Grid item>
-                  <span className={classes.operationBox}>+</span>
+                  <span className={classes.operationBox}>{operator}</span>
                 </Grid>
               </Grid>
               <Grid
@@ -137,7 +171,7 @@ const Screen_1 = () => {
                     color="primary"
                     className={classes.operationResult}
                   >
-                    7
+                    {result}
                   </Typography>
                 </Grid>
               </Grid>
