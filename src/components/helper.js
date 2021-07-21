@@ -11,11 +11,11 @@ export const operatorResult = (operator, inputValue)=>{
         break;
       case "*":
         resultValue =
-          Number(inputValue.firstNumber) * Number(inputValue.secondNumber);
+          (Number(inputValue.firstNumber) * Number(inputValue.secondNumber)).toFixed(4);
         break;
       case "/":
         resultValue =
-          Number(inputValue.firstNumber) / Number(inputValue.secondNumber);
+          (Number(inputValue.firstNumber) / Number(inputValue.secondNumber)).toFixed(4);
         break;
       default:
     }

@@ -1,9 +1,7 @@
-import View from './pages/view';
+import Operation from "./components/index";
 
 const App = () => {
-  return (
-    <View/>
-  );
-}
+  return <Operation/>;
+};
 
 export default App;

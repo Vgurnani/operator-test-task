@@ -1,14 +1,11 @@
 import React, { Fragment, useState } from "react";
-import {
-  Container,
-  Typography,
-} from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import { useStyles } from "./style.js";
-import StepOne from './step_1';
-import StepTwo from './step_2';
+import StepOne from "./step1";
+import StepTwo from "./step2";
 import { operatorResult } from "./helper.js";
 
-const Screen_1 = () => {
+const Operation = () => {
   const [inputValue, setInputValue] = useState({
     firstNumber: null,
     secondNumber: null,
@@ -37,7 +34,6 @@ const Screen_1 = () => {
       setIsOperator(true);
     }
   };
-  console.log(inputValue, "inputValue 123");
   const handleOperatorChange = (e) => {
     const { value } = e.target;
     setOperator(value);
@@ -45,12 +41,8 @@ const Screen_1 = () => {
 
   const handleOpetionResult = (e) => {
     e.preventDefault();
-   const result = operatorResult(operator,inputValue);
-   if(operator === "*" || operator === "/"){
-    setResult(result.toFixed(4));
-   }else{
+    const result = operatorResult(operator, inputValue);
     setResult(result);
-   }
   };
 
   return (
@@ -73,15 +65,20 @@ const Screen_1 = () => {
           </Typography>
           {!isOperation ? (
             <Fragment>
-            <StepOne inputValue={inputValue} onInputChange={onInputChange}/>
+              <StepOne inputValue={inputValue} onInputChange={onInputChange} />
             </Fragment>
           ) : (
-           <StepTwo inputValue={inputValue} result={result} operator={operator} 
-           onInputChange={onInputChange} handleOperatorChange={handleOperatorChange}/>
+            <StepTwo
+              inputValue={inputValue}
+              result={result}
+              operator={operator}
+              onInputChange={onInputChange}
+              handleOperatorChange={handleOperatorChange}
+            />
           )}
         </form>
       </Container>
     </div>
   );
 };
-export default Screen_1;
+export default Operation;

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   operationFormWrap: {
     padding: "50px 0",
-    textAlign: 'center',
+    textAlign: "center",
   },
   operationForm: {
     width: "100%",
@@ -32,7 +32,7 @@ export const useStyles = makeStyles((theme) => ({
     background: "#ecf5f7",
     height: 70,
     minWidth: 65,
-    padding: '0 10px',
+    padding: "0 10px",
     display: "inline-block",
     fontSize: "2rem",
     lineHeight: "64px",
@@ -51,16 +51,16 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     fontStyle: "italic",
   },
-  resultFormControl:{
-    width: '165px',
+  resultFormControl: {
+    width: "165px",
   },
-  selectOperator:{
-    textAlign: 'left',
+  selectOperator: {
+    textAlign: "left",
   },
-  resultWrap:{
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: 'calc(100vh - 187px)',
-    justifyContent: 'space-between',
-  }
+  resultWrap: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "calc(100vh - 187px)",
+    justifyContent: "space-between",
+  },
 }));

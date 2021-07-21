@@ -1,26 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ThemeProvider , createMuiTheme } from '@material-ui/core/styles';
-const defaultTheme = createMuiTheme({});
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#fff',
-      main: '#79cea1',
-      dark: '#000',
-      black: '#000000',
-      contrastText: '#ffffff',
-      main_opa_3: 'rgba(0,64,47,.3)',
-      main_opa_6: 'rgba(0,64,47,.6)',
+      light: "#fff",
+      main: "#79cea1",
+      dark: "#000",
+      black: "#000000",
+      contrastText: "#ffffff",
+      main_opa_3: "rgba(0,64,47,.3)",
+      main_opa_6: "rgba(0,64,47,.6)",
     },
     secondary: {
-      main: '#F6DA8E',
-      light: '#fff5dc',
-      dark: '#B6CBC5',
-      light_transy: 'rgba(182,203,197,.95)',
+      main: "#F6DA8E",
+      light: "#fff5dc",
+      dark: "#B6CBC5",
+      light_transy: "rgba(182,203,197,.95)",
     },
   },
 });
@@ -30,7 +29,7 @@ ReactDOM.render(
       <App />
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
