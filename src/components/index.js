@@ -6,32 +6,29 @@ import StepTwo from "./step2";
 import { operatorResult } from "./helper.js";
 
 const Operation = () => {
+  const classes = useStyles();
   const [inputValue, setInputValue] = useState({
     firstNumber: null,
     secondNumber: null,
   });
-  const classes = useStyles();
+  const [isStepTwo, setIsStepTwo] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [operator, setOperator] = useState("+");
+  const [result, setResult] = useState(null);
 
   const onInputChange = (event) => {
     const { name, value } = event.target;
     setInputValue({ ...inputValue, [name]: value });
   };
-
-  const [isOperation, setIsOperator] = useState(false);
-
-  const [operator, setOperator] = useState("+");
-  const [result, setResult] = useState(
-    Number(inputValue.firstNumber) + Number(inputValue.secondNumber)
-  );
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (inputValue.firstNumber && inputValue.secondNumber) {
       setResult(
         Number(inputValue.firstNumber) + Number(inputValue.secondNumber)
       );
-
-      setIsOperator(true);
+      setIsStepTwo(true);
+    } else {
+      setIsError(true);
     }
   };
   const handleOperatorChange = (e) => {
@@ -39,10 +36,15 @@ const Operation = () => {
     setOperator(value);
   };
 
-  const handleOpetionResult = (e) => {
+  const handleOperationResult = (e) => {
     e.preventDefault();
     const result = operatorResult(operator, inputValue);
     setResult(result);
+  };
+  const onReset = () => {
+    setIsStepTwo(false);
+    setIsError(false);
+    setInputValue({ firstNumber: null, secondNumber: null });
   };
 
   return (
@@ -50,7 +52,7 @@ const Operation = () => {
       <Container maxWidth="sm">
         <form
           onSubmit={(e) =>
-            !isOperation ? handleFormSubmit(e) : handleOpetionResult(e)
+            !isStepTwo ? handleFormSubmit(e) : handleOperationResult(e)
           }
           noValidate
           autoComplete="off"
@@ -63,9 +65,13 @@ const Operation = () => {
           >
             Expression Evaluator
           </Typography>
-          {!isOperation ? (
+          {!isStepTwo ? (
             <Fragment>
-              <StepOne inputValue={inputValue} onInputChange={onInputChange} />
+              <StepOne
+                inputValue={inputValue}
+                onInputChange={onInputChange}
+                isError={isError}
+              />
             </Fragment>
           ) : (
             <StepTwo
@@ -74,6 +80,7 @@ const Operation = () => {
               operator={operator}
               onInputChange={onInputChange}
               handleOperatorChange={handleOperatorChange}
+              onReset={onReset}
             />
           )}
         </form>

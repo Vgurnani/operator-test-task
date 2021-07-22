@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     background: "#ecf5f7",
     minWidth: 65,
     maxWidth: 185,
-    height: '100%',
+    height: "100%",
     padding: "10px 10px 15px",
     display: "flex",
     justifyContent: "center",
@@ -43,22 +43,22 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
     lineHeight: "1.2",
     color: "#929292",
-    wordBreak: 'break-all',
+    wordBreak: "break-all",
     "@media (max-width: 767px)": {
       lineHeight: "1.2",
       fontSize: "1.5rem",
       minHeight: 0,
       padding: "5px",
-      maxWidth: '100%',
-    }
+      maxWidth: "100%",
+    },
   },
   operation: {
     fontSize: "4rem",
     lineHeight: 1,
     color: "#929292",
     fontWeight: 300,
-    margin: '10px 0',
-    display:'inline-block',
+    margin: "10px 0",
+    display: "inline-block",
   },
   operationResult: {
     fontSize: "5rem",
@@ -66,13 +66,19 @@ export const useStyles = makeStyles((theme) => ({
     color: "#79cea1",
     fontWeight: 300,
     fontStyle: "italic",
-    wordBreak: 'break-all',
+    wordBreak: "break-all",
     "@media (max-width: 767px)": {
       lineHeight: "1.2",
       fontSize: "2rem",
       minHeight: 0,
       padding: "10px",
-    }
+    },
+  },
+  operationValidation: {
+    color: "red",
+    textAlign: "left",
+    width: "100%",
+    display: "inline-block",
   },
   resultFormControl: {
     width: "165px",
@@ -86,7 +92,7 @@ export const useStyles = makeStyles((theme) => ({
     minHeight: "calc(100vh - 187px)",
     justifyContent: "space-between",
   },
-  resultOperator:{
-    margin: '30px 0 0',
-  }
+  resultOperator: {
+    margin: "30px 0 0",
+  },
 }));

@@ -10,6 +10,7 @@ import {
   InputLabel,
 } from "@material-ui/core";
 import { useStyles } from "./style.js";
+import PropTypes from "prop-types";
 
 const StepTwo = (props) => {
   const classes = useStyles();
@@ -101,7 +102,7 @@ const StepTwo = (props) => {
                 name="secondNumber"
                 type="number"
                 variant="outlined"
-                label="Enter Second Number"
+                label="Operent"
                 onChange={(e) => props.onInputChange(e)}
                 value={props.inputValue.secondNumber}
               />
@@ -116,10 +117,28 @@ const StepTwo = (props) => {
                 Add Operation
               </Button>
             </Grid>
+            <Grid item>
+              <Button
+                className={classes.operationFormButton}
+                variant="contained"
+                color="primary"
+                onClick={() => props.onReset()}
+              >
+                Reset
+              </Button>
+            </Grid>
           </Grid>
         </div>
       </div>
     </Fragment>
   );
+};
+StepTwo.propTypes = {
+  inputValue: PropTypes.object,
+  onInputChange: PropTypes.func,
+  result: PropTypes.number,
+  operator: PropTypes.string,
+  handleOperatorChange: PropTypes.func,
+  onReset: PropTypes.func,
 };
 export default StepTwo;
