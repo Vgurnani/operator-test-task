@@ -19,6 +19,7 @@ const Operation = () => {
   const onInputChange = (event) => {
     const { name, value } = event.target;
     setInputValue({ ...inputValue, [name]: value });
+    setResult(null);
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ const Operation = () => {
   const handleOperatorChange = (e) => {
     const { value } = e.target;
     setOperator(value);
+    setResult(null);
   };
 
   const handleOperationResult = (e) => {
@@ -44,6 +46,7 @@ const Operation = () => {
   const onReset = () => {
     setIsStepTwo(false);
     setIsError(false);
+    setOperator("+");
     setInputValue({ firstNumber: null, secondNumber: null });
   };
 
