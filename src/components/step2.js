@@ -23,7 +23,7 @@ const StepTwo = (props) => {
             spacing={3}
             direction="row"
             justifyContent="center"
-            alignItems="center"
+            alignItems="stretch"
           >
             <Grid item>
               <span className={classes.operationBox}>

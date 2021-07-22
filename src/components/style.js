@@ -33,19 +33,23 @@ export const useStyles = makeStyles((theme) => ({
   },
   operationBox: {
     background: "#ecf5f7",
-    minHeight: 70,
     minWidth: 65,
-    padding: "0 10px",
-    display: "inline-block",
+    maxWidth: 185,
+    height: '100%',
+    padding: "10px 10px 15px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: "2rem",
-    lineHeight: "64px",
+    lineHeight: "1.2",
     color: "#929292",
     wordBreak: 'break-all',
     "@media (max-width: 767px)": {
       lineHeight: "1.2",
       fontSize: "1.5rem",
       minHeight: 0,
-      padding: "10px",
+      padding: "5px",
+      maxWidth: '100%',
     }
   },
   operation: {
@@ -53,6 +57,8 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: 1,
     color: "#929292",
     fontWeight: 300,
+    margin: '10px 0',
+    display:'inline-block',
   },
   operationResult: {
     fontSize: "5rem",
