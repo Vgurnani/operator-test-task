@@ -7,7 +7,7 @@ const StepOne = (props) => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item md={4} xs={12}>
+      <Grid item md={6} xs={12}>
         <TextField
           className={classes.operationFormControl}
           name="firstNumber"
@@ -18,7 +18,7 @@ const StepOne = (props) => {
           value={props.inputValue.firstNumber}
         />
       </Grid>
-      <Grid item md={4} xs={12}>
+      <Grid item md={6} xs={12}>
         <TextField
           className={classes.operationFormControl}
           name="secondNumber"
@@ -29,7 +29,7 @@ const StepOne = (props) => {
           value={props.inputValue.secondNumber}
         />
       </Grid>
-      <Grid item md={4} xs={12}>
+      <Grid item md={12} xs={12}>
         <Button
           type={"submit"}
           className={classes.operationFormButton}

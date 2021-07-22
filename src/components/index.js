@@ -47,7 +47,7 @@ const Operation = () => {
 
   return (
     <div className={classes.operationFormWrap}>
-      <Container fixed>
+      <Container maxWidth="sm">
         <form
           onSubmit={(e) =>
             !isOperation ? handleFormSubmit(e) : handleOpetionResult(e)
